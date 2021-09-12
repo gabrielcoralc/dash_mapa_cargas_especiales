@@ -37,10 +37,12 @@ mapbox_access_token = "pk.eyJ1IjoicGxvdGx5bWFwYm94IiwiYSI6ImNrOWJqb2F4djBnMjEzbG
 
 #------------------------------#Connect Data base-----------------------------------
 
+##La base de datos esta en un servidor de Firebird, por lo que es necesario llenar la informacion
+# del dsn, user y password
 
-dsn='170.247.0.41:/usr/bases/CEMBD.FDB' ##si esta desde internet cambie la  ip a 170.247.0.41-172.16.255.4
-user="CORALG"
-pswr="coralsge#2021"
+#dsn=
+#user=
+#pswr=
 con=fdb.connect(dsn=dsn, user=user, password=pswr, charset='UTF8')
 cursor=con.cursor();
 
@@ -162,6 +164,8 @@ def get_data(con,cods=None,tecno=None,mun=None):
     
     geobuf = dlx.geojson_to_geobuf(geojson)  # convert to geobuf
     return geojson
+
+##Una prueba cargando los datos desde una tabla de excel antes de trabajar con la base de datos
 
 # # Load data
 # ##Prepare the data
