@@ -14,7 +14,7 @@ import plotly.express as px
 from dash.dependencies import Input, Output, State
 from dash_extensions import Download
 from dash_extensions.snippets import send_data_frame
-from dash_extensions.javascript import Namespace
+
 from dash_extensions.javascript import assign
 
 import dash_table
@@ -161,8 +161,8 @@ def get_data(con,cods=None,tecno=None,mun=None):
                              <br>Municipio: {}""".format(item["CODIG_SUSCR"],item["ID_LUMINARIA"],item["TRANSFORMAD"],item["W"],item["MUNICIPIO"])  # bind tooltip
         item["tooltip"] = "ID "+str(item["ID_LUMINARIA"])  # bind popup
     geojson = dlx.dicts_to_geojson(dicts)  # convert to geojson
-    
     geobuf = dlx.geojson_to_geobuf(geojson)  # convert to geobuf
+    #Dependiendo del trabajo se puede utilizar las ubicaciones de los puntos en formato geojson o geobuff
     return geojson
 
 ##Una prueba cargando los datos desde una tabla de excel antes de trabajar con la base de datos
@@ -300,6 +300,8 @@ Alert=dbc.Alert(children="no_return",
 ## Create geojson.
 
 draw_flag = assign("""function(feature, latlng){var flag = L.icon({iconUrl: '/assets/pin.png', iconSize: [48, 48]});return L.marker(latlng, {icon: flag});}""")
+#En una futura version de Drawflag se pretende dar un color diferente a cada PIN en el mapa
+#Dependiento de un estado de cada registro
 geojson = dl.GeoJSON(data=get_data(con, cods[0]), id="geojson",options=dict(pointToLayer=draw_flag), #format="geobuf",
                      zoomToBounds=True,  # when true, zooms to bounds when data changes
                      zoomToBoundsOnClick=True,  # when true, zooms to bounds of feature (e.g. cluster) on click
