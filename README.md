@@ -32,5 +32,5 @@ El mapa de analisis permite obtener informacion de manera dinamica segun las nec
 ![alt-tex](https://github.com/gabrielcoralc/dash_mapa_cargas_especiales/blob/main/assets/Mapa_analisis.gif)
 
 
-Despues de varias versiones se tiene un producto que cumple con todas las necesidades que presentaba la empresa y incluso surgen nuevas necesidad que se iran supliendo a medida que se vayan implementando nuevas actualizaciones al codigo.
+Despues de varias versiones se tiene un producto que cumple con todas las necesidades que presentaba la empresa y incluso surgen nuevas necesidades que se iran supliendo a medida que se vayan implementando nuevas actualizaciones al codigo.
 
